@@ -9,10 +9,15 @@ let getHomepage = async (req, res) => {
 let getDetailPage = async (req, res) => {
     let id = req.params.userID;
     let [user, fields] = await pool.execute(`SELECT * FROM users where id = ?`,[id]);
-    console.log("check user: ", user)
     return res.render('detail.ejs', { userDetail: user[0] });
 }
 
+let createNewUser = async(req, res) => {
+    let {firstName, lastName, email, address} = req.body;
+    await pool.execute(`INSERT INTO users(firstName, lastName, email, address) VALUES (?, ?, ?, ?)`,[firstName, lastName, email, address])
+    return res.redirect('/');
+}
+
 module.exports = {
-    getHomepage, getDetailPage
+    getHomepage, getDetailPage, createNewUser
 }
