@@ -8,7 +8,7 @@ let getHomepage = (req, res) => {
         function (err, results, fields) {
             data = results;
             console.log(data); // results contains rows returned by server
-            return res.render('test/index.ejs', { dataUser: JSON.stringify(data) });
+            return res.render('index.ejs', { dataUser: data });
         }
     );
 }
