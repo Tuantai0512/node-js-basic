@@ -27,7 +27,7 @@
           <th>First Name</th>
           <th>Last Name</th>
           <th>Address</th>
-          <th>Edit</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -38,7 +38,7 @@
             <td><%= dataUser[i].lastName %></td>
             <td><%= dataUser[i].address %></td>
             <td>
-              <a href="/detail/<%= dataUser[i].id %>">Detail</a>
+              <a href="/detail/users/<%= dataUser[i].id %>">Detail</a>
               <button>Update</button>
               <button>Delete</button>
             </td>
